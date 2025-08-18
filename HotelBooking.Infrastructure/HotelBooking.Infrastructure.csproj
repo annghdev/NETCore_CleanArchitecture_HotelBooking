@@ -10,4 +10,13 @@
     <ProjectReference Include="..\HotelBooking.Application\HotelBooking.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="OAuth\" />
+    <Folder Include="Payments\" />
+    <Folder Include="Realtime\" />
+    <Folder Include="Notifications\Email\" />
+    <Folder Include="Notifications\Push\" />
+    <Folder Include="Notifications\SMS\" />
+  </ItemGroup>
+
 </Project>

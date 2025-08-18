@@ -10,4 +10,31 @@
     <ProjectReference Include="..\HotelBooking.Domain\HotelBooking.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Bookings\Commands\" />
+    <Folder Include="Features\Bookings\DTOs\" />
+    <Folder Include="Features\Bookings\Queries\" />
+    <Folder Include="Features\Calendar\GetTimeFrames\" />
+    <Folder Include="Features\Calendar\GetBookingCalendar\" />
+    <Folder Include="Features\Customers\Commands\" />
+    <Folder Include="Features\Customers\DTOs\" />
+    <Folder Include="Features\Customers\Queries\" />
+    <Folder Include="Features\Pricings\Commands\" />
+    <Folder Include="Features\Pricings\DTOs\" />
+    <Folder Include="Features\Pricings\Queries\" />
+    <Folder Include="Features\Rooms\Commands\" />
+    <Folder Include="Features\Rooms\DTOs\" />
+    <Folder Include="Features\Rooms\Queries\" />
+    <Folder Include="Features\Users\Commands\" />
+    <Folder Include="Features\Users\DTOs\" />
+    <Folder Include="Features\Users\Queries\" />
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
+  </ItemGroup>
+
 </Project>
