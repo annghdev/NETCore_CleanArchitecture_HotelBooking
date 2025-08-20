@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.Persistence.Repositories;
 
-public class UserRepository(BookingDbContext dbContext) : RepositoryBase<User, Guid>(dbContext), IUserRepository
+public class UserRepository(BookingDbContext dbContext) 
+    : RepositoryBase<User, Guid>(dbContext), IUserRepository
 {
     public override Task<User?> GetByIdAsync(Guid id)
     {

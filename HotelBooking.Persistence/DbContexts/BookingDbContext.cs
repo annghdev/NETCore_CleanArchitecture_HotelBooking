@@ -1,16 +1,11 @@
 ﻿using HotelBooking.Domain.Entities;
-using HotelBooking.Domain.Entities.Bases;
 using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.Persistence.DbContexts;
 
 public class BookingDbContext : DbContext
 {
-    private readonly IUserContext _userContext;
-    public BookingDbContext(DbContextOptions<BookingDbContext> options, IUserContext userContext) : base(options)
-    {
-        _userContext = userContext;
-    }
+    public BookingDbContext(DbContextOptions<BookingDbContext> options) : base(options) { }
 
     public virtual DbSet<Room> Rooms { get; set; }
     public virtual DbSet<User> Users { get; set; }
@@ -22,7 +17,8 @@ public class BookingDbContext : DbContext
     public virtual DbSet<UserRole> UserRoles { get; set; }
     public virtual DbSet<UserPermission> UserPermissions { get; set; }
     public virtual DbSet<RolePermission> RolePermissions { get; set; }
-    public virtual DbSet<Payment> Payments { get; set; }
+    public virtual DbSet<PaymentTransaction> Payments { get; set; }
+    public virtual DbSet<UserTokens> UserTokens { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -60,67 +56,9 @@ public class BookingDbContext : DbContext
         {
             opt.HasKey(p => new { p.RoleId, p.PermissionId });
         });
-    }
-
-    public override int SaveChanges()
-    {
-        ApplyAudit();
-        return base.SaveChanges();
-    }
-
-    public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-    {
-        ApplyAudit();
-        return base.SaveChangesAsync(cancellationToken);
-    }
-
-    private void ApplyAudit()
-    {
-        ApplyUserTracking();
-        ApplyDateTracking();
-    }
-    private void ApplyDateTracking()
-    {
-        var entries = ChangeTracker.Entries<IDateTracking>();
-
-        foreach (var entry in entries)
+        modelBuilder.Entity<UserTokens>(opt =>
         {
-            var now = DateTimeOffset.UtcNow;
-
-            switch (entry.State)
-            {
-                case EntityState.Added:
-                    entry.Entity.CreatedDate = now;
-                    break;
-                case EntityState.Modified:
-                    entry.Entity.UpdatedDate = now;
-                    break;
-                case EntityState.Deleted:
-                    if (entry.Entity is ISoftDeletable softDeletableEntity)
-                    {
-                        softDeletableEntity.DeletedDate = now;
-                        entry.State = EntityState.Modified;
-                    }
-                    break;
-            }
-        }
-    }
-    private void ApplyUserTracking()
-    {
-        var entries = ChangeTracker.Entries<IUserTracking>();
-
-        foreach(var entry in entries)
-        {
-            switch (entry.State)
-            {
-                case EntityState.Added:
-                    entry.Entity.CreatedBy = _userContext.UserId;
-                    break;
-                case EntityState.Modified:
-                case EntityState.Deleted:
-                    entry.Entity.UpdatedBy = _userContext.UserId;
-                    break;
-            }
-        }
+            opt.HasKey(p => p.Id);
+        });
     }
 }

@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.Persistence.Repositories;
 
-public class CustomerRepository(BookingDbContext dbContext) : RepositoryBase<Customer, Guid>(dbContext), ICustomerRepository
+public class CustomerRepository(BookingDbContext dbContext) 
+    : RepositoryBase<Customer, Guid>(dbContext), ICustomerRepository
 {
     public override async Task<IEnumerable<Customer>> GetAllAsync(CancellationToken cancellationToken = default)
     {

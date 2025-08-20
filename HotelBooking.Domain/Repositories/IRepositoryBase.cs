@@ -9,4 +9,6 @@ public interface IRepositoryBase<TEntity, Tkey> where TEntity : IAggregateRoot
     Task<TEntity?> AddAsync(TEntity entity);
     Task UpdateAsync(TEntity entity);
     Task DeleteAsync(TEntity entity);
+
+    IQueryable<TEntity> GetQueryable();
 }

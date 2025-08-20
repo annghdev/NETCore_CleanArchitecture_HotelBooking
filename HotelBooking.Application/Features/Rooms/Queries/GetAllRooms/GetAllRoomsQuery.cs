@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
-using HotelBooking.Application.Features.Rooms.DTOs;
 using HotelBooking.Domain.Repositories;
 using MediatR;
 
 namespace HotelBooking.Application.Features.Rooms.Queries.GetAllRooms;
 
-public record GetAllRoomsQuery : IRequest<IEnumerable<RoomDTO>>;
+public record GetAllRoomsQuery : IRequest<IEnumerable<RoomVM>>;
 
-public class GetAllRoomsQueryHandler : IRequestHandler<GetAllRoomsQuery, IEnumerable<RoomDTO>>
+public class GetAllRoomsQueryHandler : IRequestHandler<GetAllRoomsQuery, IEnumerable<RoomVM>>
 {
     private readonly IMapper _mapper;
     private readonly IRoomRepository _repository;
@@ -18,9 +17,9 @@ public class GetAllRoomsQueryHandler : IRequestHandler<GetAllRoomsQuery, IEnumer
         _repository = repository;
     }
 
-    public async Task<IEnumerable<RoomDTO>> Handle(GetAllRoomsQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<RoomVM>> Handle(GetAllRoomsQuery request, CancellationToken cancellationToken)
     {
         var rooms = await _repository.GetAllAsync(cancellationToken);
-        return _mapper.Map<IEnumerable<RoomDTO>>(rooms);
+        return _mapper.Map<IEnumerable<RoomVM>>(rooms);
     }
 }

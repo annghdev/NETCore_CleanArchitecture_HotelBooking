@@ -8,6 +8,7 @@ public class Booking : AuditableEntity<Guid>, IAggregateRoot
     public Room? Room { get; set; }
 
     public Guid? CustomerId { get; set; }
+    public string? SessionId { get; set; }
     public Customer? Customer { get; set; }
     public string? CustomerName { get; set; }
     public string? PhoneNumber { get; set; }
@@ -28,7 +29,7 @@ public class Booking : AuditableEntity<Guid>, IAggregateRoot
     public PaymentStatus PaymentStatus { get; set; }
     public BookingStatus Status { get; set; }
 
-    public virtual ICollection<Payment>? Payments { get; set; }
+    public virtual ICollection<PaymentTransaction>? Transactions { get; set; }
 }
 
 public enum BookingOrigin

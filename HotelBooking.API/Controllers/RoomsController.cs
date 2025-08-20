@@ -1,5 +1,6 @@
-﻿using HotelBooking.Application.Features.Rooms.Commands;
-using HotelBooking.Application.Features.Rooms.DTOs;
+﻿using HotelBooking.Application.Features.Rooms.Commands.CreateRoom;
+using HotelBooking.Application.Features.Rooms.Commands.DeleteRoom;
+using HotelBooking.Application.Features.Rooms.Commands.UpdateRoom;
 using HotelBooking.Application.Features.Rooms.Queries.GetAllRooms;
 using HotelBooking.Application.Features.Rooms.Queries.GetRoomById;
 using MediatR;

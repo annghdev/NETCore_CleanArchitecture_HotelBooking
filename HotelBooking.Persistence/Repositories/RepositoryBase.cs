@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.Persistence.Repositories;
 
-public abstract class RepositoryBase<TEntity, TKey>(BookingDbContext dbContext) : IRepositoryBase<TEntity, TKey>
+public abstract class RepositoryBase<TEntity, TKey>(BookingDbContext dbContext) 
+    : IRepositoryBase<TEntity, TKey>
     where TEntity : class, IAggregateRoot
 {
     private readonly BookingDbContext _dbContext = dbContext;
@@ -36,5 +37,10 @@ public abstract class RepositoryBase<TEntity, TKey>(BookingDbContext dbContext) 
     {
         _dbContext.Entry(entity).State = EntityState.Deleted;
         return Task.CompletedTask;
+    }
+
+    public IQueryable<TEntity> GetQueryable()
+    {
+        return dbSet.AsQueryable();
     }
 }

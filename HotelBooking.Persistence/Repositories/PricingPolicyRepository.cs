@@ -5,7 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.Persistence.Repositories;
 
-public class PricingPolicyRepository(BookingDbContext dbContext) : RepositoryBase<PricingPolicy, int>(dbContext), IPricingPolicyRepository
+public class PricingPolicyRepository(BookingDbContext dbContext) 
+    : RepositoryBase<PricingPolicy, int>(dbContext), IPricingPolicyRepository
 {
     public override async Task<PricingPolicy?> GetByIdAsync(int id)
     {

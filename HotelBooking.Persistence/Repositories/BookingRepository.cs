@@ -5,10 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.Persistence.Repositories;
 
-public class BookingRepository(BookingDbContext dbContext) : RepositoryBase<Booking, Guid>(dbContext), IBookingRepository
+public class BookingRepository(BookingDbContext dbContext) 
+    : RepositoryBase<Booking, Guid>(dbContext), IBookingRepository
 {
     public override async Task<Booking?> GetByIdAsync(Guid id)
     {
-        return await dbSet.AsNoTracking().SingleOrDefaultAsync(p => p.Id == id);
+        return await dbSet.AsNoTracking()
+            .Include(b => b.Transactions)
+            .SingleOrDefaultAsync(p => p.Id == id);
     }
 }
