@@ -22,13 +22,9 @@
     <Folder Include="Features\Pricings\Commands\" />
     <Folder Include="Features\Pricings\DTOs\" />
     <Folder Include="Features\Pricings\Queries\" />
-    <Folder Include="Features\Rooms\Commands\" />
-    <Folder Include="Features\Rooms\DTOs\" />
-    <Folder Include="Features\Rooms\Queries\" />
     <Folder Include="Features\Users\Commands\" />
     <Folder Include="Features\Users\DTOs\" />
     <Folder Include="Features\Users\Queries\" />
-    <Folder Include="Mappings\" />
   </ItemGroup>
 
   <ItemGroup>

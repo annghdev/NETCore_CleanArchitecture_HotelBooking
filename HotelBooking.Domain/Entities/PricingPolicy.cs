@@ -1,8 +1,8 @@
-﻿using HotelBooking.Domain.Abstractions;
+﻿using HotelBooking.Domain.Entities.Bases;
 
 namespace HotelBooking.Domain.Entities;
 
-public class PricingPolicy : AuditableEntity<int>
+public class PricingPolicy : AuditableEntity<int>, IAggregateRoot
 {
     public RoomType RoomType { get; set; }
     public BookingType PricingType { get; set; }

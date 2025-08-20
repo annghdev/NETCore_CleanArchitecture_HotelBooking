@@ -1,0 +1,18 @@
+﻿@model IEnumerable<HotelBooking.Application.Features.Rooms.DTOs.RoomDTO>;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+Danh sách phòng
+</div>
+
+@foreach (var room in Model)
+{
+    <p>Tên @room.Name</p>
+    <p>Loại phòng @room.Type.ToString()</p>
+    <p>Giới hạn người @room.Capacity</p>
+}
+
+

@@ -1,8 +1,8 @@
-﻿using HotelBooking.Domain.Abstractions;
+﻿using HotelBooking.Domain.Entities.Bases;
 
 namespace HotelBooking.Domain.Entities;
 
-public class Payment : EntityBase<Guid>
+public class Payment : EntityBase<Guid>, IAggregateRoot
 {
     public Guid BookingId { get; set; }
     public Booking? Booking { get; set; }

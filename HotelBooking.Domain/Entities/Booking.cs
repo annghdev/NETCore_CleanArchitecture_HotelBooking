@@ -1,5 +1,4 @@
-﻿using HotelBooking.Domain.Abstractions;
-using HotelBooking.Domain.Enums;
+﻿using HotelBooking.Domain.Entities.Bases;
 
 namespace HotelBooking.Domain.Entities;
 
