@@ -10,6 +10,7 @@ public class UserProfileVM
     public string PhoneNumber { get; set; } = default!;
     public string Email { get; set; } = default!;
     public AccountOrigin? AccountOrigin { get; set; }
+    public string? AccountOriginName { get; set; }
     public DateTimeOffset? CreatedDate { get; set; }
 }
 

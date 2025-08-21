@@ -4,7 +4,7 @@ namespace HotelBooking.Domain.Entities;
 
 public class UserTokens : EntityBase<Guid>
 {
-    public string UserId { get; set; } = default!;
+    public Guid UserId { get; set; } = default!;
     public virtual User? User { get; set; } = default!;
     public DateTimeOffset CreatedDate { get; set; } = default!;
     public string Value { get; set; } = default!;

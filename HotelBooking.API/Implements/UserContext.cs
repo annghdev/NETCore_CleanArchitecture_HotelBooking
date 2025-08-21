@@ -11,5 +11,12 @@ public class UserContext : IUserContext
         _contextAccessor = contextAccessor;
     }
 
-    public Guid? UserId => Guid.Parse(_contextAccessor.HttpContext?.User.FindFirst("UserId")?.Value);
+    public Guid? UserId
+    {
+        get
+        {
+            var userId = _contextAccessor?.HttpContext?.User?.FindFirst("UserId")?.Value;
+            return Guid.TryParse(userId, out var guid) ? guid : (Guid?)null;
+        }
+    }
 }

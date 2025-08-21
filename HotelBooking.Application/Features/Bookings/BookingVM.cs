@@ -1,4 +1,5 @@
-﻿using HotelBooking.Domain.Entities;
+﻿using HotelBooking.Application.Features.Payments;
+using HotelBooking.Domain.Entities;
 
 namespace HotelBooking.Application.Features.Bookings;
 
@@ -6,10 +7,9 @@ public class BookingVM
 {
     public Guid Id { get; set; }
     public int RoomId { get; set; }
-    public Room? Room { get; set; }
+    public string? RoomName { get; set; }
 
     public Guid? CustomerId { get; set; }
-    public Customer? Customer { get; set; }
     public string? CustomerName { get; set; }
     public string? PhoneNumber { get; set; }
 
@@ -19,25 +19,30 @@ public class BookingVM
     public double FinalAmount { get; set; }
 
     public BookingType Type { get; set; }
+    public string? TypeName { get; set; }
     public BookingOrigin Origin { get; set; }
-
+    public string? OriginName { get; set; }
     public DateTime? CheckInDateTime { get; set; }
     public DateTime? CheckOutDateTime { get; set; }
 
     public DateTime? CheckedInAt { get; set; }
     public DateTime? CheckedOutAt { get; set; }
     public PaymentStatus PaymentStatus { get; set; }
+    public string? PaymentStatusName { get; set; }
     public BookingStatus Status { get; set; }
-
-    public virtual ICollection<PaymentTransactionVM>? Payments { get; set; }
+    public string? StatusName { get; set; }
+    public virtual IEnumerable<BookingRoomVM> Rooms { get; set; } = [];
+    public virtual IEnumerable<PaymentTransactionVM> Transactions { get; set; } = [];
 }
 
-public class PaymentTransactionVM
+public class BookingRoomVM
 {
-    public DateTimeOffset? OccuredDate { get; set; }
-    public double Amount { get; set; }
-    public PaymentType Type { get; set; }
-    public PaymentOrigin Origin { get; set; }
-    public string? TransactionNo { get; set; }
-    public PaymentProcessStatus ProcessStatus { get; set; }
+    public Guid Id { get; set; }
+    public int RoomId { get; set; }
+    public string? RoomName { get; set; }
+    public double? SubTotal { get; set; }
+    public string? Notes { get; set; }
+    public Guid? ChangedToRoomId { get; set; }
+    public string? ChangedToRoom { get; set; }
+    public DateTimeOffset? ChangedRoomDate { get; set; }
 }

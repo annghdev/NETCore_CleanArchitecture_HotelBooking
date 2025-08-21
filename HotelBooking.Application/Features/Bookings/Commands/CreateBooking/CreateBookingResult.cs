@@ -1,4 +1,6 @@
-﻿namespace HotelBooking.Application.Features.Bookings.Commands.CreateBooking;
+﻿using HotelBooking.Application.Features.Bookings.Commands.CalculateAmount;
+
+namespace HotelBooking.Application.Features.Bookings.Commands.CreateBooking;
 
 public class CreateBookingResult
 {
@@ -6,6 +8,7 @@ public class CreateBookingResult
     public BookingVM? Data { get; set; }
     public string? PaymentLink { get; set; }
     public string? Message { get; set; }
+    public CalculatedAmountResult? EstimateAmount { get; set; }
 
     public static CreateBookingResult Success(BookingVM data, string? paymentLink)
     {

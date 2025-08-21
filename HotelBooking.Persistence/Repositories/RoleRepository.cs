@@ -10,15 +10,15 @@ public class RoleRepository(BookingDbContext dbContext)
 {
     public override async Task<Role?> GetByIdAsync(Guid id)
     {
-        return await dbSet.AsNoTracking()
-            .Include(r=>r.Permissions)
+        return await dbSet
+            .Include(r=>r.Permissions)!
                 .ThenInclude(p=>p.Permission)
             .SingleOrDefaultAsync(r => r.Id == id);
     }
     public override async Task<IEnumerable<Role>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return await dbSet.AsNoTracking()
-            .Include(r => r.Permissions)
+        return await dbSet
+            .Include(r => r.Permissions)!
                 .ThenInclude(p => p.Permission)
             .ToListAsync(cancellationToken);
     }

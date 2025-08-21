@@ -22,8 +22,8 @@ public class UpdateRoomCommandHandler : IRequestHandler<UpdateRoomCommand>
 
     public async Task Handle(UpdateRoomCommand request, CancellationToken cancellationToken)
     {
-        var existingRoom = await _repository.GetByIdAsync(request.Room.Id) ?? throw new NotFoundException(nameof(Room), request.Room.Id.ToString());
-        _mapper.Map(request.Room, existingRoom);
+        var existingRoom = await _repository.GetByIdAsync(request.Id) ?? throw new NotFoundException(nameof(Room), request.Id.ToString());
+        _mapper.Map(request, existingRoom);
         await _repository.UpdateAsync(existingRoom);
         await _unitOfWork.SaveChangesAsync();
     }

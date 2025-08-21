@@ -10,13 +10,13 @@ public class CustomerRepository(BookingDbContext dbContext)
 {
     public override async Task<IEnumerable<Customer>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return await dbSet.AsNoTracking()
+        return await dbSet
             .Include(p => p.User)
             .ToListAsync(cancellationToken);
     }
     public override async Task<Customer?> GetByIdAsync(Guid id)
     {
-        return await dbSet.AsNoTracking()
+        return await dbSet
             .Include(p => p.User)
             .SingleOrDefaultAsync(p => p.Id == id);
     }

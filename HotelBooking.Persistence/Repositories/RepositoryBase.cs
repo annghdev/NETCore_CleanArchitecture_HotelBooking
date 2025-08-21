@@ -10,10 +10,10 @@ public abstract class RepositoryBase<TEntity, TKey>(BookingDbContext dbContext)
     where TEntity : class, IAggregateRoot
 {
     private readonly BookingDbContext _dbContext = dbContext;
-    protected readonly DbSet<TEntity> dbSet = dbContext.Set<TEntity>();
+    protected readonly IQueryable<TEntity> dbSet = dbContext.Set<TEntity>().AsNoTracking();
     public virtual async Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken = default)
     {
-        return await _dbContext.Set<TEntity>().AsNoTracking().ToListAsync(cancellationToken);
+        return await dbSet.ToListAsync(cancellationToken);
     }
 
     public virtual async Task<TEntity?> GetByIdAsync(TKey id)
@@ -41,6 +41,6 @@ public abstract class RepositoryBase<TEntity, TKey>(BookingDbContext dbContext)
 
     public IQueryable<TEntity> GetQueryable()
     {
-        return dbSet.AsQueryable();
+        return dbSet;
     }
 }

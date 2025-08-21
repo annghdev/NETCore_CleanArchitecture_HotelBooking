@@ -4,9 +4,6 @@ namespace HotelBooking.Domain.Entities;
 
 public class Booking : AuditableEntity<Guid>, IAggregateRoot
 {
-    public int RoomId { get; set; }
-    public Room? Room { get; set; }
-
     public Guid? CustomerId { get; set; }
     public string? SessionId { get; set; }
     public Customer? Customer { get; set; }
@@ -20,7 +17,6 @@ public class Booking : AuditableEntity<Guid>, IAggregateRoot
 
     public BookingType Type { get; set; }
     public BookingOrigin Origin { get; set; }
-
     public DateTime? CheckInDateTime { get; set; }
     public DateTime? CheckOutDateTime { get; set; }
 
@@ -28,7 +24,8 @@ public class Booking : AuditableEntity<Guid>, IAggregateRoot
     public DateTime? CheckedOutAt { get; set; }
     public PaymentStatus PaymentStatus { get; set; }
     public BookingStatus Status { get; set; }
-
+    public string? Notes { get; set; }
+    public virtual ICollection<BookingRoom>? Rooms { get; set; }
     public virtual ICollection<PaymentTransaction>? Transactions { get; set; }
 }
 

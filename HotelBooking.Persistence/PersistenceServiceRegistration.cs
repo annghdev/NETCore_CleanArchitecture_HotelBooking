@@ -25,5 +25,6 @@ public static class PersistenceServiceRegistration
         services.AddScoped<IBookingRepository, BookingRepository>();
         services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IPricingPolicyRepository, PricingPolicyRepository>();
+        services.AddScoped<IPaymentTransactionRepository, PaymentTransactionRepository>();
     }
 }

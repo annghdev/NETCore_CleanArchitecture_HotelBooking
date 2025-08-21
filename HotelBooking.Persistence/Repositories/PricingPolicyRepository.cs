@@ -10,6 +10,6 @@ public class PricingPolicyRepository(BookingDbContext dbContext)
 {
     public override async Task<PricingPolicy?> GetByIdAsync(int id)
     {
-        return await dbSet.AsNoTracking().SingleOrDefaultAsync(p => p.Id == id);
+        return await dbSet.SingleOrDefaultAsync(p => p.Id == id);
     }
 }

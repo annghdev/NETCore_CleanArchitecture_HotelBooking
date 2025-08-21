@@ -1,5 +1,5 @@
 ﻿namespace HotelBooking.Domain.Entities.Bases;
 
-public interface IAuditable : IDateTracking, IUserTracking
+public interface IAuditable : IDateTracking, IUserTracking, ISoftDeletable
 {
 }

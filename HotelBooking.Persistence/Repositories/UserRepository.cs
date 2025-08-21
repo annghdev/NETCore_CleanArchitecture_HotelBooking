@@ -2,6 +2,7 @@
 using HotelBooking.Domain.Repositories;
 using HotelBooking.Persistence.DbContexts;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace HotelBooking.Persistence.Repositories;
 
@@ -10,12 +11,17 @@ public class UserRepository(BookingDbContext dbContext)
 {
     public override Task<User?> GetByIdAsync(Guid id)
     {
-        return dbSet.AsNoTracking()
-            .Include(u => u.Roles)
-                .ThenInclude(r => r.Role)
+        return dbSet
+            .Include(u => u.Roles)!
+                .ThenInclude(ur => ur.Role)
                     .ThenInclude(r => r.Permissions)
-            .Include(u => u.Permissions)
+            .Include(u => u.Permissions)!
                 .ThenInclude(p => p.Permission)
             .SingleOrDefaultAsync(u => u.Id == id);
+    }
+
+    public Task<User?> GetSingleAsync(Expression<Func<User, bool>> predicate)
+    {
+        return dbSet.SingleOrDefaultAsync(predicate);
     }
 }

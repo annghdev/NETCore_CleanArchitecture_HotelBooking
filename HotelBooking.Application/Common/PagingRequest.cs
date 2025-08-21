@@ -1,6 +1,6 @@
 ﻿namespace HotelBooking.Domain.Common;
 
-public class PagingRequest
+public class PaginRequest
 {
     public int PageNumber { get; set; } = 1;
     public int PageSize { get; set; } = 10;

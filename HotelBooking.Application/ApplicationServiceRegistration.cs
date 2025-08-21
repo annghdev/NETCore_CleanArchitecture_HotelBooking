@@ -1,4 +1,6 @@
 ﻿using FluentValidation;
+using HotelBooking.Application.Behaviors;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -13,5 +15,6 @@ public static class ApplicationServiceRegistration
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
     }
 }

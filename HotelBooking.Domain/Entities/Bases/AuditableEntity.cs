@@ -6,4 +6,5 @@ public abstract class AuditableEntity<TKey> : EntityBase<TKey>, IAuditable
     public Guid? CreatedBy { get; set; }
     public DateTimeOffset? UpdatedDate { get; set; }
     public Guid? UpdatedBy { get; set; }
+    public DateTimeOffset? DeletedDate { get; set; }
 }

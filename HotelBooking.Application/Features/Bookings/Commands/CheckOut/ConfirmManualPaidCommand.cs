@@ -3,4 +3,4 @@ using MediatR;
 
 namespace HotelBooking.Application.Features.Bookings.Commands.CheckOut;
 
-public record MarkAsPaidCommand(Guid BookingId, double Amount, PaymentOrigin Origin) : IRequest;
+public record ConfirmManualPaidCommand(Guid BookingId, double Amount, PaymentOrigin Origin) : IRequest;

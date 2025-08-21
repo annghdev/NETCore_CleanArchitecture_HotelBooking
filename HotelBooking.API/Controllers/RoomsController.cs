@@ -29,18 +29,18 @@ namespace HotelBooking.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateRoomDTO room)
+        public async Task<IActionResult> Create([FromBody] CreateRoomCommand command)
         {
-            var newRoom = await _mediator.Send(new CreateRoomCommand(room));
+            var newRoom = await _mediator.Send(command);
             return newRoom.Id > 0 ? CreatedAtAction("Create", newRoom) : StatusCode(500);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateRoomDTO room)
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateRoomCommand command)
         {
-            if (id != room.Id)
+            if (id != command.Id)
                 return BadRequest();
-            await _mediator.Send(new UpdateRoomCommand(room));
+            await _mediator.Send(command);
             return NoContent();
         }
 

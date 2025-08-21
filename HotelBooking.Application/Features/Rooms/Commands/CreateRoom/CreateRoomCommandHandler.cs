@@ -21,7 +21,7 @@ public class CreateRoomCommandHandler : IRequestHandler<CreateRoomCommand, RoomV
 
     public async Task<RoomVM> Handle(CreateRoomCommand request, CancellationToken cancellationToken)
     {
-        var newRoom = _mapper.Map<Room>(request.Room);
+        var newRoom = _mapper.Map<Room>(request);
         await _repository.AddAsync(newRoom);
         await _unitOfWork.SaveChangesAsync();
         return _mapper.Map<RoomVM>(newRoom);

@@ -6,10 +6,12 @@ public class CalendarCell
 {
     public int TimeFrameId { get; set; }
     public Guid? BookingId { get; set; }
-    public int ColSpan { get; set; } = 1;
+    public int ColSpan { get; set; }
+    public int RowSpan { get; set; }
     public BookingStatus BookingStatus { get; set; }
     public string? BookingStatusName { get; set; }
     public PaymentStatus PaymentStatus { get; set; }
+    public string? PaymentStatusName { get; set; }
     public RoomStatus RoomStatus { get; set; } = RoomStatus.Available;
     public string RoomStatusName => RoomStatus.ToDisplay();
     public Guid? CustomerId { get; set; }

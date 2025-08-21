@@ -10,6 +10,6 @@ public class RoomRepository(BookingDbContext dbContext)
 {
     public override async Task<Room?> GetByIdAsync(int id)
     {
-        return await dbSet.AsNoTracking().SingleOrDefaultAsync(r => r.Id == id);
+        return await dbSet.SingleOrDefaultAsync(r => r.Id == id);
     }
 }

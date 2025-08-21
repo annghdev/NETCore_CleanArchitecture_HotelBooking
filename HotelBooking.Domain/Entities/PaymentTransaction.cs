@@ -30,5 +30,5 @@ public enum PaymentProcessStatus
 public enum PaymentType
 {
     Deposit,
-    Checkout
+    CheckOut
 }

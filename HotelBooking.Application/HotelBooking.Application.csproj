@@ -11,28 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Bookings\Queries\GetBookingById\" />
-    <Folder Include="Features\Bookings\Queries\PagingPaymentHistory\" />
-    <Folder Include="Features\Bookings\Queries\PagingBookings\" />
-    <Folder Include="Features\Customers\Queries\GetAllCustomers\" />
-    <Folder Include="Features\Customers\Queries\GetCustomerById\" />
-    <Folder Include="Features\Customers\Queries\PagingCustomers\" />
-    <Folder Include="Features\Payments\Queries\PagingPaymentTransactions\" />
-    <Folder Include="Features\PricingPolicies\Commands\AddPricingPolicy\" />
-    <Folder Include="Features\PricingPolicies\Commands\DeletePricingPolicy\" />
-    <Folder Include="Features\PricingPolicies\Commands\UpdatePricingPolicy\" />
-    <Folder Include="Features\PricingPolicies\Queries\GetAllPricingPolicies\" />
-    <Folder Include="Features\PricingPolicies\Queries\GetPricingPolicyById\" />
-    <Folder Include="Features\Rooms\Queries\GetAvailableRooms\" />
-    <Folder Include="Features\Users\Commands\DeleteUser\" />
-    <Folder Include="Features\Users\Queries\GetAllUsers\" />
-    <Folder Include="Features\Users\Queries\GetUserById\" />
-    <Folder Include="Features\Users\Queries\GetUserByUserName\" />
-    <Folder Include="Features\Users\Queries\GetUserByPhone\" />
-    <Folder Include="Features\Users\Queries\GetUserByEmail\" />
-    <Folder Include="Features\Users\Queries\GetUserProfile\" />
-    <Folder Include="Features\Users\Queries\PagingUsers\" />
-    <Folder Include="Behaviors\" />
+    <Folder Include="Features\PricingPolicies\Commands\CalculateBookingAmount\" />
   </ItemGroup>
 
   <ItemGroup>

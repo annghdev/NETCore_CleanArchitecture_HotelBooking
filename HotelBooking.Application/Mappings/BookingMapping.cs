@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HotelBooking.Application.Features.Bookings;
 using HotelBooking.Application.Features.Bookings.Commands.CreateBooking;
+using HotelBooking.Application.Features.Payments;
 using HotelBooking.Domain.Entities;
 
 namespace HotelBooking.Application.Mappings;

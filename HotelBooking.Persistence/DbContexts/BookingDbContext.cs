@@ -11,20 +11,26 @@ public class BookingDbContext : DbContext
     public virtual DbSet<User> Users { get; set; }
     public virtual DbSet<Customer> Customers { get; set; }
     public virtual DbSet<Booking> Bookings { get; set; }
+    public virtual DbSet<BookingRoom> BookingRooms { get; set; }
     public virtual DbSet<PricingPolicy> PricingPolicies { get; set; }
     public virtual DbSet<Role> Roles { get; set; }
     public virtual DbSet<Permission> Permissions { get; set; }
     public virtual DbSet<UserRole> UserRoles { get; set; }
     public virtual DbSet<UserPermission> UserPermissions { get; set; }
     public virtual DbSet<RolePermission> RolePermissions { get; set; }
-    public virtual DbSet<PaymentTransaction> Payments { get; set; }
+    public virtual DbSet<PaymentTransaction> PaymentTransactions { get; set; }
     public virtual DbSet<UserTokens> UserTokens { get; set; }
+    public virtual DbSet<BusinessSetting> BusinessSettings { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Booking>(opt =>
+        {
+            opt.HasKey(p => p.Id);
+        });
+        modelBuilder.Entity<BookingRoom>(opt =>
         {
             opt.HasKey(p => p.Id);
         });
@@ -57,6 +63,11 @@ public class BookingDbContext : DbContext
             opt.HasKey(p => new { p.RoleId, p.PermissionId });
         });
         modelBuilder.Entity<UserTokens>(opt =>
+        {
+            opt.HasKey(p => p.Id);
+        });
+
+        modelBuilder.Entity<BusinessSetting>(opt =>
         {
             opt.HasKey(p => p.Id);
         });
