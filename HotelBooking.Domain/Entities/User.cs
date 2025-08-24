@@ -14,7 +14,8 @@ public class User : AuditableEntity<Guid>, IAggregateRoot
     public bool IsConfirmed { get; set; }
     public int LoginFailedCount { get; set; }
     public DateTimeOffset? UnlockDate { get; set; }
-    public AccountOrigin? AccountOrigin { get; set; }
+    public AccountOrigin AccountOrigin { get; set; } = AccountOrigin.System;
+    public virtual ICollection<UserTokens>? Tokens { get; set; }
     public virtual ICollection<UserRole>? Roles { get; set; }
     public virtual ICollection<UserPermission>? Permissions { get; set; }
 }

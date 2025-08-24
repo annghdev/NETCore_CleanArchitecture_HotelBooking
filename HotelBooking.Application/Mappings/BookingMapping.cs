@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HotelBooking.Application.Common;
 using HotelBooking.Application.Features.Bookings;
 using HotelBooking.Application.Features.Bookings.Commands.CreateBooking;
 using HotelBooking.Application.Features.Payments;
@@ -10,9 +11,29 @@ public class BookingMapping : Profile
 {
     public BookingMapping()
     {
-        CreateMap<Booking, BookingVM>();
+        // Booking Entity to BookingVM - Convert UTC to Vietnam timezone
+        CreateMap<Booking, BookingVM>()
+            .ForMember(dest => dest.CheckInDateTime, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcDateTimeToVietnamOffset(src.CheckInDateTime)))
+            .ForMember(dest => dest.CheckOutDateTime, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcDateTimeToVietnamOffset(src.CheckOutDateTime)))
+            .ForMember(dest => dest.CheckedInAt, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcDateTimeToVietnamOffset(src.CheckedInAt)))
+            .ForMember(dest => dest.CheckedOutAt, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcDateTimeToVietnamOffset(src.CheckedOutAt)))
+            .ForMember(dest => dest.TypeName, opt => opt.MapFrom(src => src.Type.ToString()))
+            .ForMember(dest => dest.OriginName, opt => opt.MapFrom(src => src.Origin.ToString()))
+            .ForMember(dest => dest.PaymentStatusName, opt => opt.MapFrom(src => src.PaymentStatus.ToString()))
+            .ForMember(dest => dest.StatusName, opt => opt.MapFrom(src => src.Status.ToString()));
+
+        // BookingRoom Entity to BookingRoomVM - Convert UTC to Vietnam timezone
+        CreateMap<BookingRoom, BookingRoomVM>()
+            .ForMember(dest => dest.ChangedRoomDate, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcOffsetToVietnamOffset(src.ChangedRoomDate)));
+
+        // PaymentTransaction Entity to PaymentTransactionVM - Convert UTC to Vietnam timezone
+        CreateMap<PaymentTransaction, PaymentTransactionVM>()
+            .ForMember(dest => dest.OccuredDate, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcOffsetToVietnamOffset(src.OccuredDate)))
+            .ForMember(dest => dest.TypeName, opt => opt.MapFrom(src => src.Type.ToString()))
+            .ForMember(dest => dest.OriginName, opt => opt.MapFrom(src => src.Origin.ToString()))
+            .ForMember(dest => dest.ProcessStatusName, opt => opt.MapFrom(src => src.ProcessStatus.ToString()));
+
+        // Commands to Entity mappings - No timezone conversion needed (handled by Entity base classes)
         CreateMap<CreateBookingRequest, BookingVM>();
-        CreateMap<CreateBookingRequest, BookingVM>();
-        CreateMap<PaymentTransaction, PaymentTransactionVM>();
     }
 }

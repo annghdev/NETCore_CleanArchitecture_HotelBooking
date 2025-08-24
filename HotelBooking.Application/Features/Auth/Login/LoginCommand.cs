@@ -5,10 +5,10 @@ namespace HotelBooking.Application.Features.Auth.Login;
 
 public record LoginCommand(
          AccountOrigin AccountOrigin,
-         Platform Platform,
-         string? Credential) : IRequest;
+         OpenPlatform Platform,
+         string? Credential) : IRequest<AuthResponse>;
 
-public enum Platform
+public enum OpenPlatform
 {
     Web,
     Mobile,
@@ -20,10 +20,10 @@ public static class SplitPassword
     public static (string, string, string) Excute(string credential)
     {
         var values = credential.Split('|');
-        string scheme = values[0];
+        string schema = values[0];
         string identity = values[1];
         string password = values[2];
-        return (scheme, identity, password);
+        return (schema, identity, password);
     }
 }
 

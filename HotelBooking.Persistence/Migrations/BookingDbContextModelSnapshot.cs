@@ -452,7 +452,7 @@ namespace HotelBooking.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("AccountOrigin")
+                    b.Property<int>("AccountOrigin")
                         .HasColumnType("int");
 
                     b.Property<string>("AvatarUrl")
@@ -683,7 +683,7 @@ namespace HotelBooking.Persistence.Migrations
             modelBuilder.Entity("HotelBooking.Domain.Entities.UserTokens", b =>
                 {
                     b.HasOne("HotelBooking.Domain.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -708,6 +708,8 @@ namespace HotelBooking.Persistence.Migrations
                     b.Navigation("Permissions");
 
                     b.Navigation("Roles");
+
+                    b.Navigation("Tokens");
                 });
 #pragma warning restore 612, 618
         }

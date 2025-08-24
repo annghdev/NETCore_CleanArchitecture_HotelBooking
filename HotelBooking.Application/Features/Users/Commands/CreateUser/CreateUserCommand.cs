@@ -7,5 +7,5 @@ public record CreateUserCommand(
      string UserName ,
      string? Password ,
      string? Email ,
-     string? Phone ,
-     AccountOrigin? AccountOrigin): IRequest<UserVM>;
+     string? PhoneNumber ,
+     AccountOrigin AccountOrigin): IRequest<UserVM>;

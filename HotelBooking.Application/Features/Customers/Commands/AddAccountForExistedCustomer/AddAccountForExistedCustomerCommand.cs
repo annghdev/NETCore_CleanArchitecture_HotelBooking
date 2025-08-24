@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 
 namespace HotelBooking.Application.Features.Customers.Commands.AddAccountForExistedCustomer;
 

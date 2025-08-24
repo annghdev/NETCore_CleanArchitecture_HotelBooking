@@ -9,16 +9,16 @@ public class UnitOfWork(BookingDbContext dbContext, IUserContext userContext) : 
 {
     private readonly BookingDbContext _dbContext = dbContext;
     private readonly IUserContext _userContext = userContext;
-    public async Task<int> SaveChangesAsync()
-    {
-        ApplyAudit();
-        int rows = await _dbContext.SaveChangesAsync();
-        DispatchEvents();
-        return rows;
-    }
-    public Task BeginTransactionAsync()
+    public Task BeginTransactionAsync(CancellationToken cancellationToken = default)
     {
         return Task.CompletedTask;
+    }
+    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        ApplyAudit();
+        int rows = await _dbContext.SaveChangesAsync(cancellationToken);
+        DispatchEvents();
+        return rows;
     }
     private void DispatchEvents()
     {

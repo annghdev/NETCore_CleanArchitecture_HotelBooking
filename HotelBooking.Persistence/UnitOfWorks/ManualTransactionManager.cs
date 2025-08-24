@@ -4,12 +4,12 @@ namespace HotelBooking.Persistence.UnitOfWorks;
 
 public class ManualTransactionManager : IUnitOfWork, IDisposable
 {
-    public Task BeginTransactionAsync()
+    public Task BeginTransactionAsync(CancellationToken cancellationToken = default)
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> SaveChangesAsync()
+    public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         throw new NotImplementedException();
     }

@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HotelBooking.Application\HotelBooking.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="OAuth\" />
     <Folder Include="Payments\" />
     <Folder Include="Realtime\" />
     <Folder Include="Notifications\Email\" />
@@ -21,6 +16,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HotelBooking.Persistence\HotelBooking.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

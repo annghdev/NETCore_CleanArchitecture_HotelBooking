@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HotelBooking.Infrastructure\HotelBooking.Infrastructure.csproj" />
-    <ProjectReference Include="..\HotelBooking.Persistence\HotelBooking.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

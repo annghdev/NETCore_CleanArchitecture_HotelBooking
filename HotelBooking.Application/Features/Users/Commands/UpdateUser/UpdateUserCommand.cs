@@ -8,5 +8,5 @@ public record UpdateUserCommand(
      string UserName,
      string? Password,
      string? Email,
-     string? Phone,
-     AccountOrigin? AccountOrigin) : IRequest;
+     string? PhoneNumber,
+     AccountOrigin AccountOrigin) : IRequest;

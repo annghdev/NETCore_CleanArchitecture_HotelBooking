@@ -22,11 +22,11 @@ public class BookingVM
     public string? TypeName { get; set; }
     public BookingOrigin Origin { get; set; }
     public string? OriginName { get; set; }
-    public DateTime? CheckInDateTime { get; set; }
-    public DateTime? CheckOutDateTime { get; set; }
+    public DateTimeOffset? CheckInDateTime { get; set; }
+    public DateTimeOffset? CheckOutDateTime { get; set; }
 
-    public DateTime? CheckedInAt { get; set; }
-    public DateTime? CheckedOutAt { get; set; }
+    public DateTimeOffset? CheckedInAt { get; set; }
+    public DateTimeOffset? CheckedOutAt { get; set; }
     public PaymentStatus PaymentStatus { get; set; }
     public string? PaymentStatusName { get; set; }
     public BookingStatus Status { get; set; }

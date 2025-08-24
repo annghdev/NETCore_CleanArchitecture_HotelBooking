@@ -2,6 +2,6 @@
 
 public interface IUnitOfWork
 {
-    Task BeginTransactionAsync();
-    Task<int> SaveChangesAsync();
+    Task BeginTransactionAsync(CancellationToken cancellationToken = default);
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

@@ -3,7 +3,7 @@
 public class DateRangeCalendarMatrix
 {
     public int RoomId { get; set; }
-    public int RoomName { get; set; }
+    public string RoomName { get; set; } = default!;
     public DateTimeOffset From { get; set; }
     public DateTimeOffset To { get; set; }
     public IEnumerable<TimeFrame> Columns { get; set; } = [];

@@ -4,5 +4,6 @@ public enum SearchDateType
 {
     Before,
     After,
+    Equal,
     InRange
 }
