@@ -1,5 +1,7 @@
-﻿using HotelBooking.Application.Features.Auth;
+﻿using HotelBooking.Application.Features.Auth.Common;
+using HotelBooking.Application.Features.Bookings.Commands.RoomPickings.Repository;
 using HotelBooking.Infrastructure.Auth;
+using HotelBooking.Infrastructure.RoomPickings;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,5 +14,6 @@ public static class InfrastructureServiceRegistration
         services.AddScoped<ITokenGenerator, TokenGenerator>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<ITokenValidator, TokenValidator>();
+        services.AddScoped<IRoomPickingRepository, RoomPickingRepository>();
     }
 }

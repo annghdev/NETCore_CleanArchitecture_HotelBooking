@@ -1,5 +1,4 @@
 ﻿using HotelBooking.Application.Features.Payments;
-using HotelBooking.Domain.Entities;
 
 namespace HotelBooking.Application.Features.Bookings;
 

@@ -1,5 +1,4 @@
-﻿using HotelBooking.Application.Common;
-using HotelBooking.Domain.Common;
+﻿using HotelBooking.Application.Common.Utils;
 using HotelBooking.Domain.Entities;
 using MediatR;
 

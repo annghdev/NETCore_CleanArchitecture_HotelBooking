@@ -9,7 +9,7 @@ public class UserTokenRepository(BookingDbContext dbContext) : IUserTokenReposit
 {
     private readonly BookingDbContext _dbContext = dbContext;
 
-    public async Task AddOrUpdateToken(Guid userId, string token, TokenType tokenType)
+    public async Task AddOrUpdateTokenAsync(Guid userId, string token, TokenType tokenType)
     {
         var now = DateTimeOffset.UtcNow;
         DateTimeOffset expiryDate;
@@ -45,7 +45,7 @@ public class UserTokenRepository(BookingDbContext dbContext) : IUserTokenReposit
         return userToken?.User;
     }
 
-    public async Task RemoveToken(string tokenValue)
+    public async Task RemoveTokenAsync(string tokenValue)
     {
         var token = await _dbContext.UserTokens.SingleOrDefaultAsync(t => t.Value == tokenValue);
         if (token != null)

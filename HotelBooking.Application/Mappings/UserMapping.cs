@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using HotelBooking.Application.Common;
+using HotelBooking.Application.Common.Helpers;
 using HotelBooking.Application.Features.Users;
 using HotelBooking.Application.Features.Users.Commands.CreateUser;
 using HotelBooking.Application.Features.Users.Commands.UpdateUser;

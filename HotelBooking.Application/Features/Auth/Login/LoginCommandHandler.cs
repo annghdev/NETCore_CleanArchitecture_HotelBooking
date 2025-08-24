@@ -1,9 +1,7 @@
 using AutoMapper;
+using HotelBooking.Application.Features.Auth.Common;
 using HotelBooking.Application.Features.Users;
 using HotelBooking.Domain;
-using HotelBooking.Domain.Entities;
-using HotelBooking.Domain.Repositories;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.Application.Features.Auth.Login;
@@ -83,7 +81,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, AuthResponse>
             // Save refresh token to database
             await SaveRefreshTokenAsync(user, refreshToken);
             
-            await _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
 
             // Map user profile
             var userProfile = _mapper.Map<UserProfileVM>(user);

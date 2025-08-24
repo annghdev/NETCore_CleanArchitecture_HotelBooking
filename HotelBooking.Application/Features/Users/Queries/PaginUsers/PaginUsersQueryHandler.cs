@@ -1,6 +1,6 @@
 using AutoMapper;
-using HotelBooking.Application.Common;
-using HotelBooking.Domain.Common;
+using HotelBooking.Application.Common.Helpers;
+using HotelBooking.Application.Common.Utils;
 using HotelBooking.Domain.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

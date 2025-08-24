@@ -1,8 +1,4 @@
 using AutoMapper;
-using HotelBooking.Application.Common;
-using HotelBooking.Domain.Entities;
-using HotelBooking.Domain.Repositories;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.Application.Features.Rooms.Queries.GetAvailableRooms;

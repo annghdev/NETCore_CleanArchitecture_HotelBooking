@@ -1,5 +1,3 @@
-﻿using MediatR;
+﻿namespace HotelBooking.Application.Features.Bookings.Commands.CheckIn;
 
-namespace HotelBooking.Application.Features.Bookings.Commands.CheckIn;
-
-public record CheckInCommand(Guid BookingId) : IRequest<bool>;
+public record CheckInCommand(Guid BookingId, string IdentityNo) : IRequest<bool>;

@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using HotelBooking.Application.Exceptions;
+using HotelBooking.Application.Common.Exceptions;
 using HotelBooking.Domain.Exceptions;
 
 namespace HotelBooking.API.Middlewares;

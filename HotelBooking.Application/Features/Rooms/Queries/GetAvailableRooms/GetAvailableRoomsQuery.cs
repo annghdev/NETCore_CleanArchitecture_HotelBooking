@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace HotelBooking.Application.Features.Rooms.Queries.GetAvailableRooms;
+﻿namespace HotelBooking.Application.Features.Rooms.Queries.GetAvailableRooms;
 
 public record GetAvailableRoomsQuery(
     DateTimeOffset From,

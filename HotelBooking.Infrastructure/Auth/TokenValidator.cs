@@ -1,4 +1,4 @@
-using HotelBooking.Application.Features.Auth;
+using HotelBooking.Application.Features.Auth.Common;
 using HotelBooking.Domain.Entities;
 using HotelBooking.Domain.Repositories;
 using Microsoft.EntityFrameworkCore;

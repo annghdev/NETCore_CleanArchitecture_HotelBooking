@@ -1,4 +1,5 @@
-﻿using HotelBooking.Domain.Entities;
+﻿using HotelBooking.Application.Features.Auth.Common;
+using HotelBooking.Domain.Entities;
 using MediatR;
 
 namespace HotelBooking.Application.Features.Auth.Login;

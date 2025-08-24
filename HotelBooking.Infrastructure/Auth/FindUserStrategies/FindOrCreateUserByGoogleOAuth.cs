@@ -1,10 +1,10 @@
-﻿using HotelBooking.Application.Features.Auth;
-using HotelBooking.Application.Features.Auth.Login;
+﻿using HotelBooking.Application.Features.Auth.Login;
 using HotelBooking.Domain.Entities;
 using HotelBooking.Domain.Repositories;
 using HotelBooking.Domain;
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
+using HotelBooking.Application.Features.Auth.Common;
 
 namespace HotelBooking.Infrastructure.Auth.FindUserStrategies;
 

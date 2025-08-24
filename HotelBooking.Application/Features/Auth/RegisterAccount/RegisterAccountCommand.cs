@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using HotelBooking.Application.Features.Auth.Common;
+using MediatR;
 
 namespace HotelBooking.Application.Features.Auth.RegisterAccount;
 

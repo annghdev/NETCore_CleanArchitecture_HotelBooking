@@ -1,5 +1,4 @@
-﻿using HotelBooking.Application.Common;
-using HotelBooking.Domain.Common;
+﻿using HotelBooking.Application.Common.Utils;
 using MediatR;
 
 namespace HotelBooking.Application.Features.Bookings.Queries.PaginBookings;

@@ -1,4 +1,5 @@
 using AutoMapper;
+using HotelBooking.Application.Features.Auth.Common;
 using HotelBooking.Application.Features.Users;
 using HotelBooking.Domain;
 using HotelBooking.Domain.Entities;

@@ -7,5 +7,5 @@ public class BusinessSetting : AuditableEntity<Guid>
     public int PrepayPercent { get; set; } = 20;
     public int PrepayAtLeastDays { get; set; } = 1;
     public bool RequireCheckAllPeople { get; set; }
+    public int DraftExpiryMinutes { get; set; }
 }
-

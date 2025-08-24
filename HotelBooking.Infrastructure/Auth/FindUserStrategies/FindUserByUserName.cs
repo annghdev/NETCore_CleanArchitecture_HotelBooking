@@ -1,4 +1,4 @@
-﻿using HotelBooking.Application.Features.Auth;
+﻿using HotelBooking.Application.Features.Auth.Common;
 using HotelBooking.Application.Features.Auth.Login;
 using HotelBooking.Domain.Entities;
 using HotelBooking.Domain.Exceptions;

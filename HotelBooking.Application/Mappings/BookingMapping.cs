@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
-using HotelBooking.Application.Common;
 using HotelBooking.Application.Features.Bookings;
-using HotelBooking.Application.Features.Bookings.Commands.CreateBooking;
 using HotelBooking.Application.Features.Payments;
-using HotelBooking.Domain.Entities;
 
 namespace HotelBooking.Application.Mappings;
 
@@ -13,10 +10,10 @@ public class BookingMapping : Profile
     {
         // Booking Entity to BookingVM - Convert UTC to Vietnam timezone
         CreateMap<Booking, BookingVM>()
-            .ForMember(dest => dest.CheckInDateTime, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcDateTimeToVietnamOffset(src.CheckInDateTime)))
-            .ForMember(dest => dest.CheckOutDateTime, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcDateTimeToVietnamOffset(src.CheckOutDateTime)))
-            .ForMember(dest => dest.CheckedInAt, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcDateTimeToVietnamOffset(src.CheckedInAt)))
-            .ForMember(dest => dest.CheckedOutAt, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcDateTimeToVietnamOffset(src.CheckedOutAt)))
+            .ForMember(dest => dest.CheckInDateTime, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcOffsetToVietnamOffset(src.CheckInDateTime)))
+            .ForMember(dest => dest.CheckOutDateTime, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcOffsetToVietnamOffset(src.CheckOutDateTime)))
+            .ForMember(dest => dest.CheckedInAt, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcOffsetToVietnamOffset(src.CheckedInAt)))
+            .ForMember(dest => dest.CheckedOutAt, opt => opt.MapFrom(src => TimeZoneHelper.ConvertUtcOffsetToVietnamOffset(src.CheckedOutAt)))
             .ForMember(dest => dest.TypeName, opt => opt.MapFrom(src => src.Type.ToString()))
             .ForMember(dest => dest.OriginName, opt => opt.MapFrom(src => src.Origin.ToString()))
             .ForMember(dest => dest.PaymentStatusName, opt => opt.MapFrom(src => src.PaymentStatus.ToString()))
@@ -33,7 +30,5 @@ public class BookingMapping : Profile
             .ForMember(dest => dest.OriginName, opt => opt.MapFrom(src => src.Origin.ToString()))
             .ForMember(dest => dest.ProcessStatusName, opt => opt.MapFrom(src => src.ProcessStatus.ToString()));
 
-        // Commands to Entity mappings - No timezone conversion needed (handled by Entity base classes)
-        CreateMap<CreateBookingRequest, BookingVM>();
     }
 }

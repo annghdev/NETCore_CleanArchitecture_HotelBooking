@@ -1,10 +1,7 @@
 using AutoMapper;
+using HotelBooking.Application.Features.Auth.Common;
 using HotelBooking.Application.Features.Users;
 using HotelBooking.Domain;
-using HotelBooking.Domain.Entities;
-using HotelBooking.Domain.Exceptions;
-using HotelBooking.Domain.Repositories;
-using MediatR;
 
 namespace HotelBooking.Application.Features.Auth.RegisterAccount;
 

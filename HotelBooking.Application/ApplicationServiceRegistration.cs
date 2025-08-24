@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
-using HotelBooking.Application.Behaviors;
+using HotelBooking.Application.Common.Behaviors;
+using HotelBooking.Application.Features.Bookings.CalculateAmount;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -15,6 +16,8 @@ public static class ApplicationServiceRegistration
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
         services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+        services.AddScoped<IAmountCalculator, AmountCalulator>();
     }
 }

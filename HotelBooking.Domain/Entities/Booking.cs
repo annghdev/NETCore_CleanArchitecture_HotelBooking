@@ -10,18 +10,19 @@ public class Booking : AuditableEntity<Guid>, IAggregateRoot
     public string? CustomerName { get; set; }
     public string? PhoneNumber { get; set; }
 
-    public double DepositAmount { get; set; }
+    public double PrepayAmount { get; set; }
     public double OriginalAmount { get; set; }
     public double DiscountAmount { get; set; }
     public double FinalAmount { get; set; }
 
     public BookingType Type { get; set; }
     public BookingOrigin Origin { get; set; }
-    public DateTime? CheckInDateTime { get; set; }
-    public DateTime? CheckOutDateTime { get; set; }
+    public DateTimeOffset? CheckInDateTime { get; set; }
+    public DateTimeOffset? CheckOutDateTime { get; set; }
 
-    public DateTime? CheckedInAt { get; set; }
-    public DateTime? CheckedOutAt { get; set; }
+    public DateTimeOffset? CheckedInAt { get; set; }
+    public DateTimeOffset? CheckedOutAt { get; set; }
+    public DateTimeOffset? DraftedDate { get; set; }
     public PaymentStatus PaymentStatus { get; set; }
     public BookingStatus Status { get; set; }
     public string? Notes { get; set; }
