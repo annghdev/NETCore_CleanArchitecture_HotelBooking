@@ -1,4 +1,4 @@
-﻿using HotelBooking.Application.Features.Payments;
+﻿using HotelBooking.Application.Features.BookingTransactions;
 
 namespace HotelBooking.Application.Features.Bookings;
 

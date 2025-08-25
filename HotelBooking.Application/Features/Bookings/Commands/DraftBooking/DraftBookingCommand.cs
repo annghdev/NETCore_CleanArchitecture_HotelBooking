@@ -7,8 +7,8 @@ public record DraftBookingCommand(
     IEnumerable<int> RoomIds,
     BookingType Type,
     BookingOrigin Origin,
-    DateTime? CheckInDateTime,
-    DateTime? CheckOutDateTime,
+    DateTimeOffset CheckInDateTime,
+    DateTimeOffset CheckOutDateTime,
     string? SessionId) : IRequest<DraftBookingResult>;
 
 public class DraftBookingResult

@@ -1,5 +1,5 @@
 ﻿using HotelBooking.Application.Features.Auth.Common;
-using HotelBooking.Application.Features.Bookings.Commands.RoomPickings.Repository;
+using HotelBooking.Application.Features.RoomPickings.Repository;
 using HotelBooking.Infrastructure.Auth;
 using HotelBooking.Infrastructure.RoomPickings;
 using Microsoft.Extensions.Configuration;

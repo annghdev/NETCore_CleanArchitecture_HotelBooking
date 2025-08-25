@@ -5,7 +5,7 @@ namespace HotelBooking.Application.Features.Bookings.Commands.CreateBooking;
 public record CreateBookingCommand(
     Guid Id,
     string VoucherCode,
-    PaymentOrigin PrepayOrigin) : IRequest<CreateBookingResult>;
+    PaymentGateway PrepayOrigin) : IRequest<CreateBookingResult>;
 
 public class CreateBookingResult
 {

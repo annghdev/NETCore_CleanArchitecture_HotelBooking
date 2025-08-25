@@ -4,16 +4,16 @@ namespace HotelBooking.Domain.Entities;
 
 public class PaymentTransaction : EntityBase<Guid>, IAggregateRoot
 {
-    public Guid BookingId { get; set; }
+    public Guid? BookingId { get; set; }
     public Booking? Booking { get; set; }
     public double Amount { get; set; }
-    public PaymentType Type { get; set; }
-    public PaymentOrigin Origin { get; set; }
+    public PaymentAction Action { get; set; }
+    public PaymentGateway Gateway { get; set; }
     public PaymentProcessStatus ProcessStatus { get; set; }
     public string? TransactionNo { get; set; }
     public DateTimeOffset? OccuredDate { get; set; }
 }
-public enum PaymentOrigin
+public enum PaymentGateway
 {
     Offline,
     BankTransfer,
@@ -27,8 +27,10 @@ public enum PaymentProcessStatus
     Failed,
     Refunded
 }
-public enum PaymentType
+public enum PaymentAction
 {
-    Deposit,
-    CheckOut
+    Prepay,
+    CheckOut,
+    Service,
+    Other,
 }

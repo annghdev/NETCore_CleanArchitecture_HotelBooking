@@ -1,5 +1,5 @@
-﻿using HotelBooking.Application.Features.Bookings.Commands.RoomPickings.Models;
-using HotelBooking.Application.Features.Bookings.Commands.RoomPickings.Repository;
+﻿using HotelBooking.Application.Features.RoomPickings.Models;
+using HotelBooking.Application.Features.RoomPickings.Repository;
 
 namespace HotelBooking.Infrastructure.RoomPickings;
 

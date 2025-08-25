@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using HotelBooking.Application.Features.Bookings;
-using HotelBooking.Application.Features.Payments;
+using HotelBooking.Application.Features.BookingTransactions;
 
 namespace HotelBooking.Application.Mappings;
 
